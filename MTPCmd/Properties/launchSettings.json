@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MTPCmd": {
+      "commandName": "Project",
+      "commandLineArgs": "info"
+    }
+  }
+}
