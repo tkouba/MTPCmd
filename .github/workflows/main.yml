@@ -48,9 +48,9 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Upload the ZIP package: https://github.com/marketplace/actions/upload-artifact
+    # Upload the build artifacts: https://github.com/marketplace/actions/upload-artifact
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ZIP Package
+        name: MTPCmd-package
         path: ${{ env.Project_Directory }}\bin\Publish\
