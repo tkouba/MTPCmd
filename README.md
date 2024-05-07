@@ -1,4 +1,10 @@
 # MTPCmd
+
+[![License](https://img.shields.io/github/license/tkouba/MTPCmd)](LICENSE.md)
+![Release](https://img.shields.io/github/release/tkouba/MTPCmd.svg)
+![Commits since latest release](https://img.shields.io/github/commits-since/tkouba/MTPCmd/latest)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tkouba/MTPCmd/main.yml)
+
 Media device (MTP - Media Transfer Protocol) command line interface
 
 > [!NOTE]
@@ -56,3 +62,4 @@ mtpcmd help <verb>
 
 # License
 [MIT](LICENSE.md)
+
