@@ -4,7 +4,19 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
     <AssemblyName>mtpcmd</AssemblyName>
+    <Authors>Tomas "Arci" Kouba</Authors>
+    <Description>MTP command line interface</Description>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <Copyright>Copyright (c) 2020 Tomas "Arci" Kouba</Copyright>
+    <PackageProjectUrl>https://github.com/tkouba/MTPCmd</PackageProjectUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\TableCopy\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />

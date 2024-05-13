@@ -123,7 +123,7 @@ mtpcmd help
 
 ```console
 mtpcmd 1.0.0
-Copyright (C) 2024 mtpcmd
+Copyright (c) 2020 Tomas "Arci" Kouba
 
   list       Display list of MTP devices.
 
@@ -154,7 +154,7 @@ mtpcmd help list
 
 ```console
 mtpcmd 1.0.0
-Copyright (C) 2024 mtpcmd
+Copyright (c) 2020 Tomas "Arci" Kouba
 
   --detailed    Include details (like S/N) in device list.
 
@@ -169,7 +169,7 @@ mtpcmd help info
 
 ```console
 mtpcmd 1.0.0
-Copyright (C) 2024 mtpcmd
+Copyright (c) 2020 Tomas "Arci" Kouba
 
   -m, --manufacturer     Filter device by manufacturer. 
 
