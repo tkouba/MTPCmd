@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MTPCmd.Options
 {
-    [Verb("list", HelpText = "List of MTP devices")]
+    [Verb("list", HelpText = "Display list of MTP devices.")]
     class ListOption
     {
         [Option("detailed", HelpText = "Include details (like S/N) in device list.")]
