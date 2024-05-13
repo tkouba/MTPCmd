@@ -2,7 +2,6 @@
 using MTPCmd.Options;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MTPCmd
 {
@@ -16,10 +15,10 @@ namespace MTPCmd
                 {
                     if ((String.IsNullOrWhiteSpace(deviceOption.FriendlyName) && String.IsNullOrWhiteSpace(deviceOption.Manufacturer))
                         ||
-                        (String.IsNullOrWhiteSpace(deviceOption.Manufacturer) && 
+                        (String.IsNullOrWhiteSpace(deviceOption.Manufacturer) &&
                             String.Equals(device.FriendlyName, deviceOption.FriendlyName, StringComparison.CurrentCultureIgnoreCase))
                         ||
-                        (String.IsNullOrWhiteSpace(deviceOption.FriendlyName) && 
+                        (String.IsNullOrWhiteSpace(deviceOption.FriendlyName) &&
                             String.Equals(device.Manufacturer, deviceOption.Manufacturer, StringComparison.CurrentCultureIgnoreCase))
                         ||
                         (String.Equals(device.FriendlyName, deviceOption.FriendlyName, StringComparison.CurrentCultureIgnoreCase) &&
@@ -46,7 +45,7 @@ namespace MTPCmd
             // mag is 0 for bytes, 1 for KB, 2, for MB, etc.
             int mag = (int)Math.Log(value, 1024);
 
-            // 1L << (mag * 10) == 2 ^ (10 * mag) 
+            // 1L << (mag * 10) == 2 ^ (10 * mag)
             // [i.e. the number of bytes in the unit corresponding to mag]
             decimal adjustedSize = (decimal)value / (1L << (mag * 10));
 
