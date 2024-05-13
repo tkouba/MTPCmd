@@ -54,7 +54,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: MTPCmd-package-${{ env:TargetFramework }}
+        name: MTPCmd-package-${{ matrix.targetframework }}
         path: ${{ env.Project_Directory }}\bin\Publish\
-      env:
-        TargetFramework: ${{ matrix.targetframework }}
