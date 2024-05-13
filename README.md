@@ -1,9 +1,9 @@
 # MTPCmd
 
 [![License](https://img.shields.io/github/license/tkouba/MTPCmd)](LICENSE.md)
-![Release](https://img.shields.io/github/release/tkouba/MTPCmd.svg)
+[![Release](https://img.shields.io/github/release/tkouba/MTPCmd.svg)](https://github.com/tkouba/MTPCmd/releases/latest)
 ![Commits since latest release](https://img.shields.io/github/commits-since/tkouba/MTPCmd/latest)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tkouba/MTPCmd/main.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/tkouba/MTPCmd/main.yml)](https://github.com/tkouba/MTPCmd/actions)
 
 Media device (MTP - Media Transfer Protocol) command line interface
 
