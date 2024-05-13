@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 
 namespace MTPCmd
 {
@@ -42,42 +43,42 @@ namespace MTPCmd
 
         private static int RunCommand(ListOption opts)
         {
-            int count = 0;
-            foreach (MediaDevice device in MediaDevice.GetDevices())
+            MediaDevice[] devices = MediaDevice.GetDevices().ToArray();
+            if (devices.Length > 0)
             {
-                if (count == 0)
-                {
-                    if (opts.Detailed)
-                        Console.WriteLine("Friendly Name  \tManufacturer   \tDescription         \tSerial Number  \tModel");
-                    else
-                        Console.WriteLine("Friendly Name  \tManufacturer   \tDescription");
-                }
-                count++;
                 if (opts.Detailed)
-                {
-                    try
-                    {
-                        device.Connect();
-                        Console.WriteLine($"{device.FriendlyName,-15}\t{device.Manufacturer,-15}\t{device.Description,-20}\t{device.SerialNumber,-15}\t{device.Model}");
-
-
-                        device.Disconnect();
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"{device.FriendlyName}: {ex.Message}");
-                    }
-                    finally
-                    {
-                        device.Dispose();
-                    }
-                }
+                    Console.WriteLine("Friendly Name  \tManufacturer        \tDescription         \tSerial Number                      \tModel");
                 else
+                    Console.WriteLine("Friendly Name  \tManufacturer        \tDescription");
+                foreach (MediaDevice device in devices)
                 {
-                    Console.WriteLine($"{device.FriendlyName,-15}\t{device.Manufacturer,-15}\t{device.Description}");
+                    string friendlyName = device.FriendlyName;
+                    string manufacturer = device.Manufacturer;
+                    string description = device.Description;
+                    if (opts.Detailed)
+                    {
+                        try
+                        {
+                            device.Connect();
+                            Console.WriteLine($"{friendlyName,-15}\t{manufacturer,-20}\t{description,-20}\t{device.SerialNumber,-35}\t{device.Model}");
+                            device.Disconnect();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"{friendlyName}: {ex.Message}");
+                        }
+                        finally
+                        {
+                            device.Dispose();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{friendlyName,-15}\t{manufacturer,-20}\t{description}");
+                    }
                 }
             }
-            Console.WriteLine("{0} devices found.", count);
+            Console.WriteLine("{0} devices found.", devices.Length);
             return 0;
         }
 
