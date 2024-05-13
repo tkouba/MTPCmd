@@ -25,13 +25,13 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0 
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+      uses: microsoft/setup-msbuild@v2
 
     # Execute all unit tests in the solution
     #- name: Execute unit tests
@@ -52,7 +52,7 @@ jobs:
 
     # Upload the build artifacts: https://github.com/marketplace/actions/upload-artifact
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: MTPCmd-package-${{ matrix.targetframework }}
         path: ${{ env.Project_Directory }}\bin\Publish\
