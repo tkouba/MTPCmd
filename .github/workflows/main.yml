@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         configuration: [Release]   # configuration: [Debug, Release]
+        targetframework: [net48]   # targetframework: [net48, , net8.0-windows]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
@@ -44,13 +45,16 @@ jobs:
 
     # Create the app package by building project
     - name: Build and publish application
-      run: msbuild $env:Project_Path /t:Publish /p:Configuration=$env:Configuration /p:PublishDir=bin\Publish
+      run: msbuild $env:Project_Path /t:Publish /p:Configuration=$env:Configuration /p:PublishDir=bin\Publish /p:TargetFramework=$env:TargetFramework
       env:
         Configuration: ${{ matrix.configuration }}
+        TargetFramework: ${{ matrix.targetframework }}
 
     # Upload the build artifacts: https://github.com/marketplace/actions/upload-artifact
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: MTPCmd-package
+        name: MTPCmd-package-$env:TargetFramework
         path: ${{ env.Project_Directory }}\bin\Publish\
+      env:
+        TargetFramework: ${{ matrix.targetframework }}
